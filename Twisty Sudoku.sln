@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twisty Sudoku", "Twisty Sudoku\Twisty Sudoku.csproj", "{B4AE0E59-F04D-4E04-A8A1-D2246E46DD55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4AE0E59-F04D-4E04-A8A1-D2246E46DD55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4AE0E59-F04D-4E04-A8A1-D2246E46DD55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4AE0E59-F04D-4E04-A8A1-D2246E46DD55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4AE0E59-F04D-4E04-A8A1-D2246E46DD55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90E6C874-B152-4679-A245-21F84D3D6C65}
+	EndGlobalSection
+EndGlobal
