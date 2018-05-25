@@ -1,6 +1,6 @@
 ﻿namespace Twisty_Sudoku
 {
-    partial class Form1
+    partial class Canvas
     {
         /// <summary>
         /// Required designer variable.
