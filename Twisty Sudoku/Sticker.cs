@@ -16,10 +16,38 @@ namespace Twisty_Sudoku
             position = p;
             color = c;
         }
-
-        public void draw(Graphics g)
+        private static int blankspace(int coordinate)
         {
-            throw new NotImplementedException();
+            int returnvalue = 0;
+            if (coordinate < 3)
+            {
+                returnvalue += 5;
+                returnvalue += 3 * (coordinate % 3);
+            }
+            else if(coordinate >= 3 && coordinate < 6)
+            {
+                returnvalue += 16;
+                returnvalue += 3 * (coordinate % 3);
+            }
+            else
+            {
+                returnvalue += 27;
+                returnvalue += 3 * (coordinate % 3);
+            }
+            return returnvalue;
+        }
+
+        public void draw(Graphics g, int width, int height)
+        {
+            Brush br = new SolidBrush(color);
+            int sizeX = (int) Math.Round((width - 38) / 9F);
+            int sizeY = (int) Math.Round((height - 38) / 9F);
+            g.FillRectangle(br,
+                (position.X * sizeX) + blankspace(position.X),
+                (position.Y * sizeY) + blankspace(position.Y),
+                sizeX,
+                sizeY);
+            br.Dispose();
         }
 
         public void setPos(Point pos)

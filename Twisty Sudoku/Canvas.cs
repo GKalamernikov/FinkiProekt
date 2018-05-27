@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace Twisty_Sudoku
 {
-    public partial class Canvas : Form
+    public partial class Canvas : Form, Monitor
     {
+        Cube theCube;
+        Observer cubeWatcher;
         public Canvas()
         {
             InitializeComponent();
+            cubeWatcher = new Observer();
+            cubeWatcher.sub(this);
+            theCube = Cube.getCube(cubeWatcher);
+        }
+
+        public void update()
+        {
+            Invalidate();
+        }
+
+        private void Canvas_Paint(object sender, PaintEventArgs e)
+        {
+            theCube.draw(panel.CreateGraphics(), panel.Width, panel.Height);
         }
     }
 }

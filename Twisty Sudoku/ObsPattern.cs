@@ -13,9 +13,13 @@ namespace Twisty_Sudoku
     class Observer
     {
         HashSet<Monitor> monitors;
+        public Observer()
+        {
+            monitors = new HashSet<Monitor>();
+        }
         public void notify()
         {
-            foreach(Monitor monitor in monitors)
+            foreach (Monitor monitor in monitors)
             {
                 monitor.update();
             }
@@ -31,4 +35,5 @@ namespace Twisty_Sudoku
                 monitors.Remove(to_unsub);
             }
         }
+    }
 }

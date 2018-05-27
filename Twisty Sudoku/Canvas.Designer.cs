@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.panel = new System.Windows.Forms.Panel();
+            this.SuspendLayout();
+            // 
+            // panel
+            // 
+            this.panel.Location = new System.Drawing.Point(12, 12);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(460, 460);
+            this.panel.TabIndex = 0;
+            // 
+            // Canvas
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(484, 483);
+            this.Controls.Add(this.panel);
+            this.Name = "Canvas";
+            this.Text = "Game";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panel;
     }
 }
 
