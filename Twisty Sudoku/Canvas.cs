@@ -16,18 +16,25 @@ namespace Twisty_Sudoku
         Observer cubeWatcher;
         public Canvas()
         {
-            InitializeComponent();
             cubeWatcher = new Observer();
             cubeWatcher.sub(this);
             theCube = Cube.getCube(cubeWatcher);
+            InitializeComponent();
         }
 
         public void update()
         {
             Invalidate();
+            panel.Invalidate();
         }
 
-        private void Canvas_Paint(object sender, PaintEventArgs e)
+        private void panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            theCube.handleClick(e.X, e.Y);
+            update();
+        }
+
+        private void panel_Paint(object sender, PaintEventArgs e)
         {
             theCube.draw(panel.CreateGraphics(), panel.Width, panel.Height);
         }

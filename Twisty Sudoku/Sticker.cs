@@ -10,7 +10,10 @@ namespace Twisty_Sudoku
     class Sticker
     {
         Color color;
-        Point position; //Pozicija na matricata, ne na ekrano
+        public Point position { private set; get; } //Pozicija na matricata, ne na ekrano
+        private Point upRight;
+        private int sizeX;
+        private int sizeY;
         public Sticker(Color c, Point p)
         {
             position = p;
@@ -40,16 +43,20 @@ namespace Twisty_Sudoku
         public void draw(Graphics g, int width, int height)
         {
             Brush br = new SolidBrush(color);
-            int sizeX = (int) Math.Round((width - 38) / 9F);
-            int sizeY = (int) Math.Round((height - 38) / 9F);
+            sizeX = (int) Math.Round((width - 38) / 9F);
+            sizeY = (int) Math.Round((height - 38) / 9F);
+            upRight = new Point((position.X * sizeX) + blankspace(position.X), (position.Y * sizeY) + blankspace(position.Y));
             g.FillRectangle(br,
-                (position.X * sizeX) + blankspace(position.X),
-                (position.Y * sizeY) + blankspace(position.Y),
+                upRight.X,
+                upRight.Y,
                 sizeX,
                 sizeY);
             br.Dispose();
         }
-
+        public bool hit(int x, int y)
+        {
+            return (((x - upRight.X < sizeX) && (x - upRight.X > 0)) && ((y - upRight.Y < sizeY) && (y - upRight.Y > 0)));
+        }
         public void setPos(Point pos)
         {
             position = pos;

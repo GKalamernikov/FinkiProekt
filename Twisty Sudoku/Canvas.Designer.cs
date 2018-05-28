@@ -29,14 +29,28 @@
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
+            this.debug = new System.Windows.Forms.Label();
+            this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.debug);
             this.panel.Location = new System.Drawing.Point(12, 12);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(460, 460);
             this.panel.TabIndex = 0;
+            this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
+            // 
+            // debug
+            // 
+            this.debug.AutoSize = true;
+            this.debug.Location = new System.Drawing.Point(3, 447);
+            this.debug.Name = "debug";
+            this.debug.Size = new System.Drawing.Size(39, 13);
+            this.debug.TabIndex = 0;
+            this.debug.Text = "Debug";
             // 
             // Canvas
             // 
@@ -46,7 +60,8 @@
             this.Controls.Add(this.panel);
             this.Name = "Canvas";
             this.Text = "Game";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -54,6 +69,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Label debug;
     }
 }
 
