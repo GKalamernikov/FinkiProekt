@@ -30,8 +30,16 @@ namespace Twisty_Sudoku
 
         private void panel_MouseDown(object sender, MouseEventArgs e)
         {
-            theCube.handleClick(e.X, e.Y);
-            update();
+            theCube.handleDown(e.X, e.Y);
+        }
+        private void panel_MouseUp(object sender, MouseEventArgs e)
+        {
+            theCube.handleUp(e.X, e.Y);
+        }
+
+        private void panel_MouseMove(object sender, MouseEventArgs e)
+        {
+            theCube.handleMove(e.X, e.Y);
         }
 
         private void panel_Paint(object sender, PaintEventArgs e)
