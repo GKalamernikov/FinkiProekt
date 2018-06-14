@@ -95,7 +95,11 @@ namespace Twisty_Sudoku
             theCube = new Cube(cubeWatcher);
             cubeWatcher.notify();
         }
-
+        private void scramble()
+        {
+            //TO DO: implement function
+            cubeWatcher.notify();
+        }
         public void update()
         {
             if(lastClicked != null)

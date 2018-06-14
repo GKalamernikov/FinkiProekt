@@ -43,7 +43,7 @@ namespace Twisty_Sudoku
             {
                 cycleColumn(matrix, source.position.X, (target.position.Y - source.position.Y + 9) % 9);
             }
-            else
+            else if (source.position.Y == target.position.Y)
             {
                 cycleRow(matrix, source.position.Y, (target.position.X - source.position.X + 9) % 9);
             }
