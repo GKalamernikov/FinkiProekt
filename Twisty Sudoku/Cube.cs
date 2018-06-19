@@ -118,11 +118,6 @@ namespace Twisty_Sudoku
             cubeWatcher.notify();
             
         }
-
-        public bool isSolved()
-        {
-            
-        }
         public bool isSolved()
         {
             return Matrices.isSolved(matrix);

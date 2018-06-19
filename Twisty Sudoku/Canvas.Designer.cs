@@ -33,8 +33,9 @@
             this.debug = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.scramble = new System.Windows.Forms.Button();
-            this.time = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.time = new System.Windows.Forms.Label();
+            this.reset = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // scramble
@@ -69,33 +71,45 @@
             this.scramble.Name = "scramble";
             this.scramble.Size = new System.Drawing.Size(75, 23);
             this.scramble.TabIndex = 3;
-            this.scramble.Text = "SCRAMBLE";
+            this.scramble.Text = "Scramble";
             this.scramble.UseVisualStyleBackColor = true;
             this.scramble.Click += new System.EventHandler(this.scramble_Click);
-            // 
-            // time
-            // 
-            this.time.Location = new System.Drawing.Point(364, 488);
-            this.time.Name = "time";
-            this.time.Size = new System.Drawing.Size(91, 20);
-            this.time.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(323, 491);
+            this.label1.Location = new System.Drawing.Point(323, 490);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Time:";
+            // 
+            // time
+            // 
+            this.time.AutoSize = true;
+            this.time.Location = new System.Drawing.Point(362, 490);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(0, 13);
+            this.time.TabIndex = 5;
+            // 
+            // reset
+            // 
+            this.reset.Location = new System.Drawing.Point(108, 485);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(75, 23);
+            this.reset.TabIndex = 6;
+            this.reset.Text = "Reset";
+            this.reset.UseVisualStyleBackColor = true;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
             // Canvas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 520);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.reset);
             this.Controls.Add(this.time);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.scramble);
             this.Controls.Add(this.panel);
             this.Name = "Canvas";
@@ -113,8 +127,9 @@
         private System.Windows.Forms.Label debug;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button scramble;
-        private System.Windows.Forms.TextBox time;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label time;
+        private System.Windows.Forms.Button reset;
     }
 }
 

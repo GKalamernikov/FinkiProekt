@@ -35,6 +35,16 @@ namespace Twisty_Sudoku
         private void panel_MouseUp(object sender, MouseEventArgs e)
         {
             theCube.handleUp(e.X, e.Y);
+            if (theCube.isSolved())
+            {
+                timer1.Stop();
+                TimeSpan i_minutes = TimeSpan.FromSeconds(i);
+                MessageBox.Show("Congratulations! Your solving time is: " +
+                    String.Format("{0:D2}:{1:D2}:{2:D2}", i_minutes.Hours, i_minutes.Minutes, i_minutes.Seconds)
+                    + "\n Click SCRAMBLE to start again.");
+                i = 0;
+                time.Text = "";
+            }
         }
 
         private void panel_MouseMove(object sender, MouseEventArgs e)
@@ -51,22 +61,23 @@ namespace Twisty_Sudoku
         private void timer1_Tick(object sender, EventArgs e)
         {
             i++;
-            time.Text = i.ToString();
-            if(theCube.isSolved())
-            {
-                timer1.Stop();
-             MessageBox.Show("Congratulations! Your solving time is: " + i+"\n Click SCRAMBLE to start again.");
-             i = 0;
-             time.Text = "";
-            }
-            
+            TimeSpan i_minutes = TimeSpan.FromSeconds(i);
+            time.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", i_minutes.Hours, i_minutes.Minutes, i_minutes.Seconds);
         }
 
         private void scramble_Click(object sender, EventArgs e)
         {
             theCube.scramble();
             timer1.Start();
+        }
 
+        private void reset_Click(object sender, EventArgs e)
+        {
+            theCube.reset();
+            theCube = Cube.getCube(cubeWatcher);
+            timer1.Stop();
+            i = 0;
+            time.Text = "";
         }
     }
 }

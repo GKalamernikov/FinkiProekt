@@ -81,7 +81,7 @@ namespace Twisty_Sudoku
                         }
                         else if (j >= 6)
                         {
-                            matrix[i][j] = new Sticker(Color.Orange, new Point(i, j), o);
+                            matrix[i][j] = new Sticker(Color.DarkOrange, new Point(i, j), o);
                         }
                     }
                     else if (i >= 6)
