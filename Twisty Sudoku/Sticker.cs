@@ -9,7 +9,7 @@ namespace Twisty_Sudoku
 {
     class Sticker
     {
-        Color color;
+        public Color color { private set; get; }
         Observer cubeWatcher;
         public Point position { set; get; } //Pozicija na matricata, ne na ekrano
         public int offsetX { set; get; }

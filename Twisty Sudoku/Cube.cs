@@ -56,6 +56,8 @@ namespace Twisty_Sudoku
 
         public void handleUp(int x, int y)
         {
+            if(lastClicked.position.X == 0)
+                Matrices.isSolved(matrix);
             Sticker target = null ;
             foreach (Sticker[] array in matrix)
             {
@@ -95,10 +97,29 @@ namespace Twisty_Sudoku
             theCube = new Cube(cubeWatcher);
             cubeWatcher.notify();
         }
-        private void scramble()
+        public void scramble()
         {
-            //TO DO: implement function
+            Random rng = new Random();
+            for(int i=0; i<50; i++)
+            {
+                int row = rng.Next(2);
+                int first = rng.Next(9);
+                int second = rng.Next(9);
+                int third = rng.Next(9);
+                if(row == 0)
+                {
+                    Matrices.makeMove(matrix, matrix[first][second], matrix[first][third]);
+                }
+                else
+                {
+                    Matrices.makeMove(matrix, matrix[first][second], matrix[third][second]);
+                }
+            }
             cubeWatcher.notify();
+        }
+        public bool isSolved()
+        {
+            return Matrices.isSolved(matrix);
         }
         public void update()
         {

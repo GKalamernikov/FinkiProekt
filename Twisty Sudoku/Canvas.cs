@@ -21,7 +21,7 @@ namespace Twisty_Sudoku
             theCube = Cube.getCube(cubeWatcher);
             InitializeComponent();
         }
-
+        
         public void update()
         {
             Invalidate();

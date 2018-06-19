@@ -96,11 +96,33 @@ namespace Twisty_Sudoku
                         }
                         else if (j >= 6)
                         {
-                            matrix[i][j] = new Sticker(Color.Pink, new Point(i, j), o);
+                            matrix[i][j] = new Sticker(Color.Crimson, new Point(i, j), o);
                         }
                     }
                 }
             }
+        }
+        public static bool isSolved(Sticker[][] matrix)
+        {
+            int[] centers = { 1, 4, 7 };
+            int[] offsetsX = { 1, 1,  1, 0,  0, -1, -1, -1 };
+            int[] offsetsY = { 1, 0, -1, 1, -1,  1,  0, -1 };
+            for(int i=0; i<3; i++)
+            {
+                for(int j=0; j<3; j++)
+                {
+                    for(int k=0; k<8; k++)
+                    {
+                        int x = centers[i] + offsetsX[k];
+                        int y = centers[j] + offsetsY[k];
+                        if(matrix[x][y].color != matrix[centers[i]][centers[j]].color)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
     }
 }
