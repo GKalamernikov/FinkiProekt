@@ -46,5 +46,27 @@ namespace Twisty_Sudoku
         {
             theCube.draw(panel.CreateGraphics(), panel.Width, panel.Height);
         }
+
+        int i = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            i++;
+            time.Text = i.ToString();
+            if(theCube.isSolved())
+            {
+                timer1.Stop();
+             MessageBox.Show("Congratulations! Your solving time is: " + i+"\n Click SCRAMBLE to start again.");
+             i = 0;
+             time.Text = "";
+            }
+            
+        }
+
+        private void scramble_Click(object sender, EventArgs e)
+        {
+            theCube.scramble();
+            timer1.Start();
+
+        }
     }
 }

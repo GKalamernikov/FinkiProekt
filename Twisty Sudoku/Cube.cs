@@ -99,6 +99,12 @@ namespace Twisty_Sudoku
         {
             //TO DO: implement function
             cubeWatcher.notify();
+            
+        }
+
+        public bool isSolved()
+        {
+            
         }
         public void update()
         {
